@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwapHub - Book & Game Exchange</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/icons/favicon.ico">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="site-title">📚🎮 SwapHub</h1>
+                <p class="site-subtitle">MYP Personal Project - Book & Game Exchange Platform</p>
+                <p class="project-info">Promoting Sustainability & Community Sharing</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <div class="nav-content">
+                <div class="nav-links">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#browse" class="nav-link">Browse</a>
+                    <a href="#upload" class="nav-link">Upload</a>
+                    <a href="#rules" class="nav-link">Rules</a>
+                    <a href="#about" class="nav-link">About</a>
+                </div>
+                <div class="auth-section">
+                    <button id="login-btn" class="btn btn-login">Login</button>
+                    <button id="register-btn" class="btn btn-register">Register</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Home Section -->
+            <section id="home" class="content-section active">
+                <div class="hero-section">
+                    <h2>Welcome to SwapHub</h2>
+                    <p class="hero-description">A sustainable platform for students to exchange books and games. Reduce waste, save money, and build community.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">📚</div>
+                            <div class="stat-number" id="total-books">0</div>
+                            <div class="stat-label">Books Available</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🎮</div>
+                            <div class="stat-number" id="total-games">0</div>
+                            <div class="stat-label">Games Available</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">👥</div>
+                            <div class="stat-number" id="total-users">0</div>
+                            <div class="stat-label">Active Users</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🔄</div>
+                            <div class="stat-number" id="total-exchanges">0</div>
+                            <div class="stat-label">Exchanges Made</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="features-section">
+                    <h3>How It Works</h3>
+                    <div class="features-grid">
+                        <div class="feature">
+                            <div class="feature-icon">1️⃣</div>
+                            <h4>Sign Up</h4>
+                            <p>Create your free student account</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">2️⃣</div>
+                            <h4>Add Items</h4>
+                            <p>List books/games you want to exchange</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">3️⃣</div>
+                            <h4>Browse</h4>
+                            <p>Find items you're interested in</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">4️⃣</div>
+                            <h4>Exchange</h4>
+                            <p>Meet and swap items at school</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Browse Section -->
+            <section id="browse" class="content-section">
+                <div class="section-header">
+                    <h2>Available Items</h2>
+                    <div class="section-controls">
+                        <select id="category-filter" class="filter-select">
+                            <option value="all">All Items</option>
+                            <option value="book">Books Only</option>
+                            <option value="game">Games Only</option>
+                        </select>
+                        <button id="add-item-btn" class="btn btn-add">+ Add Item</button>
+                    </div>
+                </div>
+
+                <div id="items-container" class="items-grid">
+                    <!-- Items will load here -->
+                </div>
+            </section>
+
+            <!-- Upload Section -->
+            <section id="upload" class="content-section">
+                <div class="section-header">
+                    <h2>Upload Files</h2>
+                    <p>Upload images of your items. Maximum file size: 50MB.</p>
+                </div>
+
+                <div class="upload-area" id="upload-area">
+                    <div class="upload-icon">📤</div>
+                    <h3>Drag & Drop Files Here</h3>
+                    <p>or click to select files</p>
+                    <input type="file" id="file-input" multiple accept="image/*,.pdf,.doc,.txt">
+                </div>
+
+                <div id="file-list" class="file-list">
+                    <!-- File list will appear here -->
+                </div>
+
+                <div class="upload-controls">
+                    <button id="upload-btn" class="btn btn-primary">Upload Selected Files</button>
+                    <button id="clear-btn" class="btn btn-secondary">Clear All</button>
+                </div>
+            </section>
+
+            <!-- Rules Section -->
+            <section id="rules" class="content-section">
+                <div class="section-header">
+                    <h2>Exchange Rules</h2>
+                </div>
+
+                <div class="rules-container">
+                    <div class="rule-card">
+                        <h3><span class="rule-icon">✅</span> Basic Rules</h3>
+                        <ul>
+                            <li>All items must be in good condition</li>
+                            <li>No damaged or broken items</li>
+                            <li>Be honest about item condition</li>
+                            <li>Meet only in designated school areas</li>
+                            <li>Bring student ID for verification</li>
+                        </ul>
+                    </div>
+
+                    <div class="rule-card">
+                        <h3><span class="rule-icon">⭐</span> Condition Guide</h3>
+                        <div class="condition-guide">
+                            <div class="condition-item">
+                                <span class="condition-dot excellent"></span>
+                                <div>
+                                    <strong>Excellent</strong>
+                                    <p>Like new, no visible wear</p>
+                                </div>
+                            </div>
+                            <div class="condition-item">
+                                <span class="condition-dot good"></span>
+                                <div>
+                                    <strong>Good</strong>
+                                    <p>Minor signs of use</p>
+                                </div>
+                            </div>
+                            <div class="condition-item">
+                                <span class="condition-dot fair"></span>
+                                <div>
+                                    <strong>Fair</strong>
+                                    <p>Visible wear but functional</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rule-card">
+                        <h3><span class="rule-icon">🔄</span> Exchange Process</h3>
+                        <ol>
+                            <li>Browse available items</li>
+                            <li>Request exchange with owner</li>
+                            <li>Agree on meeting time/place</li>
+                            <li>Meet at school library</li>
+                            <li>Complete the exchange</li>
+                            <li>Leave feedback</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="content-section">
+                <div class="section-header">
+                    <h2>About This Project</h2>
+                </div>
+
+                <div class="about-content">
+                    <div class="project-info-card">
+                        <h3>Project Overview</h3>
+                        <p>SwapHub was created as an MYP Personal Project to address sustainability, accessibility, and community building among students. The platform promotes the reuse of books and games, reducing waste and fostering connections.</p>
+                    </div>
+
+                    <div class="project-info-card">
+                        <h3>Learning Goals</h3>
+                        <ul>
+                            <li>Web development with HTML, CSS, JavaScript</li>
+                            <li>Database design and management</li>
+                            <li>User interface and experience design</li>
+                            <li>Project planning and implementation</li>
+                            <li>Community engagement strategies</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-info-card">
+                        <h3>Contact Information</h3>
+                        <div class="contact-info">
+                            <p><strong>Project Creator:</strong> Yves</p>
+                            <p><strong>School:</strong> International School</p>
+                            <p><strong>Grade:</strong> 10</p>
+                            <p><strong>Supervisor:</strong> Mr. Johnson</p>
+                            <p><strong>Email:</strong> swaphub@school.edu</p>
+                            <p><strong>Location:</strong> School Library, Room 205</p>
+                            <p><strong>Exchange Days:</strong> Every Friday, 3-5 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SwapHub</h3>
+                    <p>Book & Game Exchange Platform</p>
+                    <p>MYP Personal Project</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#home">Home</a>
+                    <a href="#browse">Browse Items</a>
+                    <a href="#rules">Exchange Rules</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Project Info</h3>
+                    <p>Created for MYP Program</p>
+                    <p>Focus: Sustainability</p>
+                    <p>Focus: Community</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SwapHub - MYP Personal Project. All rights reserved.</p>
+                <p class="github-link">
+                    <a href="https://github.com/yourusername/swaphub" target="_blank">
+                        View on GitHub
+                    </a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Login to SwapHub</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="student@school.edu">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password">
+                </div>
+                <button id="submit-login" class="btn btn-primary">Login</button>
+                <p class="modal-footer">
+                    Don't have an account? <a href="#" id="switch-to-register">Register here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create Account</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Your name">
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" placeholder="student@school.edu">
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" placeholder="Create a password">
+                </div>
+                <div class="form-group">
+                    <label for="grade">Grade Level</label>
+                    <select id="grade">
+                        <option value="">Select grade</option>
+                        <option value="9">Grade 9</option>
+                        <option value="10">Grade 10</option>
+                        <option value="11">Grade 11</option>
+                        <option value="12">Grade 12</option>
+                    </select>
+                </div>
+                <button id="submit-register" class="btn btn-primary">Create Account</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="add-item-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Item</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="item-type">Item Type</label>
+                    <select id="item-type">
+                        <option value="">Select type</option>
+                        <option value="book">Book</option>
+                        <option value="game">Game</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="item-title">Title</label>
+                    <input type="text" id="item-title" placeholder="Item title">
+                </div>
+                <div class="form-group">
+                    <label for="item-genre">Genre/Type</label>
+                    <input type="text" id="item-genre" placeholder="e.g., Fiction, Board Game">
+                </div>
+                <div class="form-group">
+                    <label for="item-condition">Condition</label>
+                    <select id="item-condition">
+                        <option value="">Select condition</option>
+                        <option value="excellent">Excellent</option>
+                        <option value="good">Good</option>
+                        <option value="fair">Fair</option>
+                        <option value="worn">Worn</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="item-description">Description</label>
+                    <textarea id="item-description" rows="3" placeholder="Describe your item"></textarea>
+                </div>
+                <button id="submit-item" class="btn btn-primary">Add Item</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
